@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MessageBoard</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+  <div class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Message Board</a>
+      </div>
+      <ul class="nav navbar-nav">
+
+        <% if current_user %>
+            <li><a href="/">Home</a></li>
+           <li><a href="/posts">Posts</a></li>
+        <% end %>
+
+      </ul>
+      <p class="navbar-text pull-right">
+        <% if current_user %>
+           <%= current_user.email %> | <%= link_to('log out', logout_path) %>
+        <% else %>
+          Log in
+        <% end %>
+      </p>
+    </div>
+  </div>
+  <%= yield %>
+</body>
+</html>
+
+<script type="text/javascript">
+  window.setTimeout(function() {
+    $(".notice").fadeTo(100, 0).slideUp(100, function()
+    {
+      $(this).remove();
+    });
+  }, 1000);
+</script>

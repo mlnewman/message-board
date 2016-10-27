@@ -1,0 +1,15 @@
+
+.post-dsp {
+  @extend .container-border;
+  width: 500px;
+  margin-left: 10px !important;
+}
+
+.comment {
+  @extend .container-border;
+}
+
+.post-content {
+  border-bottom: 2px solid #cccccc;
+  padding-bottom: 10px;
+}

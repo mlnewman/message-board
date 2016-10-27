@@ -1,0 +1,12 @@
+<h2>Replies</h2>
+
+<% if comments.empty? %>
+  <div> Be the first to comment </div>
+<% else %>
+    <% comments.each do |comment| %>
+      <div class='comment'>
+      <%= comment.content %> </br>
+      -- <%= comment.user.email %> on <%= comment.created_at.try(:strftime, '%m-%d-%Y %-l:%M%P') %>
+      </div>
+    <% end %>
+<% end %>
